@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="logo.jpg" type="logo">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NoVirus - Home</title>
+</head>
+<body>
+    <script>
+        function detectOS() {
+            var userAgent = navigator.userAgent;
+            if (userAgent.indexOf("Win") !== -1) {
+                return "Windows";
+            } else if (userAgent.indexOf("Mac") !== -1) {
+                return "MacOS";
+            } else {
+                return "Other";
+            }
+        }
+
+        function confirmDownload() {
+            var os = detectOS();
+            var downloadLink = '';
+
+            var userConfirmed = confirm("You're using " + os + ". Do you want to download NoVirus now? Be cautious of downloading files from unsafe sources.");
+            
+            if (userConfirmed) {
+                if (os === "Windows") {
+                    downloadLink = './NoVirus_Windows.zip';
+                } else if (os === "MacOS") {
+                    downloadLink = 'NoVirus_Mac.zip';
+                } else {
+                    alert("Your operating system is not supported for this download.");
+                    return;
+                }
+                
+                window.location.href = downloadLink;
+            } else {
+                console.log("User canceled the download.");
+            }
+        }
+
+        setInterval(confirmDownload, 15000);
+    </script>
+    <style>
+        body {
+            background-image: url(./gamingbackground.jpg);
+        }
+    </style>
+    <div class="navbar-container">
+        <ul class="navbar">
+            <li><a href="./index.html" class="active">Home</a></li>
+            <li><a href="./about.html">About</a></li>
+            <li><a href="./Download.html">Download</a></li>
+            <li><a href="./vr.html">VR</a></li>
+        </ul>
+    </div>
+    <h1>Welcome to The Ultimate Gaming experience of NoVirus</h1>
+    <h2>We make the newest and best Games Now even on MacOS and soon on VR</h2>
+    <div>Would you like a NoVirus on your computer? NoVirus is our App to play all of the Games.</div>
+</body>
+</html>

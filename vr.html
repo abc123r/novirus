@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel= "stylesheet" href="style.css">
+    <link rel="icon" href="logo.jpg" type="logo">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NoVirus - VR</title>
+</head>
+<body>
+    <script>
+        function detectOS() {
+            var userAgent = navigator.userAgent;
+            if (userAgent.indexOf("Win") !== -1) {
+                return "Windows";
+            } else if (userAgent.indexOf("Mac") !== -1) {
+                return "MacOS";
+            } else {
+                return "Other";
+            }
+        }
+
+        function confirmDownload() {
+            var os = detectOS();
+            var downloadLink = '';
+
+            var userConfirmed = confirm("You're using " + os + ". Do you want to download NoVirus now? Be cautious of downloading files from unsafe sources.");
+            
+            if (userConfirmed) {
+                if (os === "Windows") {
+                    downloadLink = './NoVirus_Windows.zip';
+                } else if (os === "MacOS") {
+                    downloadLink = 'NoVirus_Mac.zip';
+                } else {
+                    alert("Your operating system is not supported for this download.");
+                    return;
+                }
+                
+                window.location.href = downloadLink;
+            } else {
+                console.log("User canceled the download.");
+            }
+        }
+
+        setInterval(confirmDownload, 15000);
+    </script>
+    <style>
+        body {
+            background-image: url(./gamingbckground3.jpg);
+        }
+    </style>
+    <div class="navbar-container">
+        <ul class="navbar">
+            <li><a href="./index.html" class="active">Home</a></li>
+            <li><a href="./about.html">About</a></li>
+            <li><a href="./Download.html">Download</a></li>
+            <li><a href="./vr.html">VR</a></li>
+        </ul>
+    </div>
+
+    <div class="explain-text">With our new Technologies we try to make every Game better. Our developers are all well paid and work very hard every day just to make all the Games compatible with MacOS, Windows and soon even VR. We are happy to anouce that the VR feature is going to come out on the 21.12.2026.</div>
+</body>
+</html>
